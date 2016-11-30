@@ -7,7 +7,7 @@ if(!empty($_POST)){
 }
 
 if ($IMC < 16.5) {
-    
+
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if ($IMC < 16.5) {
                         <legend>Poids (Kg):</legend>
                     </td>
                     <td>
-                        <input type="number" name="Poids" required="required" value=""/>
+                        <input type="number" name="Poids" required="required"/>
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +35,7 @@ if ($IMC < 16.5) {
                         <legend>Taille (m):</legend>
                     </td>
                     <td>
-                        <input type="text" name="Taille" required="required" value="" />
+                        <input type="text" name="Taille" required="required"/>
                     </td>
                 </tr>
                 <tr>
