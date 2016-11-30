@@ -1,17 +1,20 @@
 <?php
-$poids = (isset($_REQUIRED["Poids"])?$_REQUIRED["Poids"]:"1");
-$taille = (isset($_REQUIRED["Taille"])?$_REQUIRED["Taille"]:"1");
+if(!empty($_POST)){
+  $poids = $_REQUEST["Poids"];
+  $taille = $_REQUEST["Taille"];
 
-$IMC = $poids / pow($taille, 2);
+  $IMC = round($poids / pow($taille, 2), 1);
+}
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
     <title>IMC</title>
+    <link rel="stylesheet" href="style/Style.css"/>
   </head>
   <body>
-    <div>
+    <div id="main">
       <img alt="Obelix" src="ressources/obelix.jpg"/>
       <form action="#" method="POST">
             <table>
