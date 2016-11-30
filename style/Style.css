@@ -6,10 +6,19 @@
   border-radius: 30px;
   align-content: center;
   box-shadow: 5px 5px 10px grey;
+  position: static;
+  padding: 10px;
 }
-img, table{
-  position: relative;
+table{
+  position: static;
   margin: auto;
+  text-align: center;
+}
+img{
+  margin: 20px 100px;
+}
+tr{
+  align-content: center;
 }
 form{
   align-content: center;

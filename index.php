@@ -5,9 +5,6 @@ if(!empty($_POST)){
 
   $IMC = round($poids / pow($taille, 2), 1);
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,19 +14,22 @@ if(!empty($_POST)){
     <link rel="stylesheet" href="style/Style.css" />
   </head>
   <body>
+    <script>
+      document.getElementById("Obelix").style.left = document.getElementById("main").style.left/2 - document.getElementById("Obelix").style.width;
+    </script>
     <div id="main">
       <?php
-        $TableauIMC = array (
-            "moins de 16,5" => "dénutrition ou famine",
-            "16,5 à 18,5" => "maigreur",
-            "18,5 à 25" => "corpulence normale",
-            "25 à 30" => "surpoids",
-            "30 à 35" => "obésité modére",
-            "35 à 40" => "obésité sévère",
-            "plus de 40" => "obésité morbide ou massive",
+        $TableauIMC = array(
+            0 => array("moins de 16,5", "dénutrition ou famine"),
+            1 => array("16,5 à 18,5", "maigreur"),
+            2 => array("18,5 à 25", "corpulence normale"),
+            3 => array("25 à 30", "surpoids"),
+            4 => array("30 à 35", "obésité modére"),
+            5 => array("35 à 40", "obésité sévère"),
+            6 => array("plus de 40", "obésité morbide ou massive")
         );
       ?>
-      <img alt="Obelix" src="ressources/obelix.jpg"/>
+      <img id="Obelix" alt="Obelix" src="ressources/obelix.jpg"/>
       <form action="#" method="POST">
             <table>
                 <tr>
@@ -49,36 +49,40 @@ if(!empty($_POST)){
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <input type="submit" value="Calcul" name="btnSubmit"/>
                     </td>
+                </tr>
+                <tfoot>
+                  <tr>
+                    <td colspan="2">
+                      <p><?php echo 'Votre IMC est :' . $IMC ?></p>
+                    </td>
                   </tr>
+                </tfoot>
             </table>
         </form>
-        <table style="border: 1px solid black; border-collapse: collapse; margin: 6px; text-align: center;" border="1">
+        <table style="border: 1px solid black; border-collapse: collapse; text-align: center; position: static; margin: auto;" border="1">
             <?php
-            $LigneEnValeur = "";
+            $LigneEnValeur = 6;
 
-            if ($IMC > 40) {
-              $LigneEnValeur = "plus de 40";
+            if ($IMC < 40) {
+              $LigneEnValeur--;
             }
-            elseif ($IMC <= 40) {
-              $LigneEnValeur = "35 à 40";
+            if ($IMC < 35) {
+              $LigneEnValeur--;
             }
-            elseif ($IMC <= 35) {
-              $LigneEnValeur = "30 à 35";
+            if ($IMC < 30) {
+              $LigneEnValeur--;
             }
-            elseif ($IMC <= 30) {
-              $LigneEnValeur = "25 à 30";
+            if ($IMC < 25) {
+              $LigneEnValeur--;
             }
-            elseif ($IMC <= 25) {
-              $LigneEnValeur = "18,5 à 25";
+            if ($IMC < 18.5) {
+              $LigneEnValeur--;
             }
-            elseif ($IMC <= 18.5) {
-              $LigneEnValeur = "16,5 à 18,5";
-            }
-            elseif ($IMC <= 16.5) {
-              $LigneEnValeur = "moins de 16,5";
+            if ($IMC < 16.5) {
+              $LigneEnValeur--;
             }
                 foreach($TableauIMC as $key => $value){
                   if($key == $LigneEnValeur){
@@ -87,8 +91,8 @@ if(!empty($_POST)){
                   else {
                     echo "<tr>";
                   }
-                    echo "<td>".$key."</td>";
-                    echo "<td>".$value."</td>";
+                    echo "<td>".$value[0]."</td>";
+                    echo "<td>".$value[1]."</td>";
                     echo "</tr>";
                 }
             ?>
