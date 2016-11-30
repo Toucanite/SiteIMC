@@ -6,37 +6,7 @@ if(!empty($_POST)){
   $IMC = round($poids / pow($taille, 2), 1);
 }
 
-$Attribut = "";
-$Couleur = "black";
 
-if ($IMC < 16.5) {
-    $Attribut = "Dénutrition";
-    $Couleur = "red";
-}
-elseif ($IMC > 16.5 && $IMC <= 18.5) {
-    $Attribut = "Maigreur";
-    $Couleur = "orange";
-}
-elseif ($IMC > 18.5 && $IMC <= 25) {
-    $Attribut = "Corpulence normale";
-    $Couleur = "green";
-}
-elseif ($IMC > 25 && $IMC <= 30) {
-    $Attribut = "Surpoids";
-    $Couleur = "orange";
-}
-elseif ($IMC > 30 && $IMC <= 35) {
-    $Attribut = "Obésité modérée";
-    $Couleur = "red";
-}
-elseif ($IMC > 35 && $IMC <= 40) {
-    $Attribut = "Obésité sévère";
-    $Couleur = "red";
-}
-elseif ($IMC > 40) {
-    $Attribut = "Obésité Morbide !!!";
-    $Couleur = "red";
-}
 
 ?>
 <!DOCTYPE html>
@@ -85,20 +55,38 @@ elseif ($IMC > 40) {
                   </tr>
             </table>
         </form>
-        <table>
-            <tr>
-                <td><?php echo $IMC ?></td>
-                <td><?php echo "<a style='color:".$Couleur."  '>".$Attribut."</a>"; ?></td>
-            </tr>
-        </table>
-<<<<<<< HEAD
-        <table style="border: 1px solid black">
-=======
         <table style="border: 1px solid black; border-collapse: collapse; margin: 6px; text-align: center;" border="1">
->>>>>>> origin/Lucas
             <?php
+            $LigneEnValeur = "";
+
+            if ($IMC > 40) {
+              $LigneEnValeur = "plus de 40";
+            }
+            elseif ($IMC <= 40) {
+              $LigneEnValeur = "35 à 40";
+            }
+            elseif ($IMC <= 35) {
+              $LigneEnValeur = "30 à 35";
+            }
+            elseif ($IMC <= 30) {
+              $LigneEnValeur = "25 à 30";
+            }
+            elseif ($IMC <= 25) {
+              $LigneEnValeur = "18,5 à 25";
+            }
+            elseif ($IMC <= 18.5) {
+              $LigneEnValeur = "16,5 à 18,5";
+            }
+            elseif ($IMC <= 16.5) {
+              $LigneEnValeur = "moins de 16,5";
+            }
                 foreach($TableauIMC as $key => $value){
+                  if($key == $LigneEnValeur){
+                    echo '<tr style="color: red;">';
+                  }
+                  else {
                     echo "<tr>";
+                  }
                     echo "<td>".$key."</td>";
                     echo "<td>".$value."</td>";
                     echo "</tr>";
