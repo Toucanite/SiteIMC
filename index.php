@@ -77,7 +77,7 @@ elseif ($IMC > 40) {
         <table>
             <tr>
                 <td><?php echo $IMC ?></td>
-                <td><?php echo "<a style='color:".$Couleur." '>".$Attribut."</a>"; ?></td>
+                <td><?php echo "<a style='color:".$Couleur."  '>".$Attribut."</a>"; ?></td>
             </tr>
         </table>
     </div>
