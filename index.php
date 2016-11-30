@@ -1,6 +1,6 @@
 <?php
-$poids = $_REQUIRED["Poids"];
-$taille = $_REQUIRED["Taille"];
+$poids = (isset($_REQUIRED["Poids"])?$_REQUIRED["Poids"]:"1");
+$taille = (isset($_REQUIRED["Taille"])?$_REQUIRED["Taille"]:"1");
 
 $IMC = $poids / pow($taille, 2);
 ?>
@@ -28,7 +28,7 @@ $IMC = $poids / pow($taille, 2);
                         Taille :
                     </td>
                     <td>
-                        <input type="number" name="Taille" required="required" value="<?php echo $taille ?>" />
+                        <input type="text" name="Taille" required="required" value="<?php echo $taille ?>" />
                     </td>
                 </tr>
                 <tr>
