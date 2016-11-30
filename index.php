@@ -91,7 +91,11 @@ elseif ($IMC > 40) {
                 <td><?php echo "<a style='color:".$Couleur."  '>".$Attribut."</a>"; ?></td>
             </tr>
         </table>
+<<<<<<< HEAD
         <table style="border: 1px solid black">
+=======
+        <table style="border: 1px solid black; border-collapse: collapse; margin: 6px; text-align: center;" border="1">
+>>>>>>> origin/Lucas
             <?php
                 foreach($TableauIMC as $key => $value){
                     echo "<tr>";
