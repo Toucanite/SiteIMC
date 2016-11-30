@@ -5,6 +5,39 @@ if(!empty($_POST)){
 
   $IMC = round($poids / pow($taille, 2), 1);
 }
+
+$Attribut = "";
+$Couleur = "black";
+
+if ($IMC < 16.5) {
+    $Attribut = "Dénutrition";
+    $Couleur = "red";
+}
+elseif ($IMC > 16.5 && $IMC <= 18.5) {
+    $Attribut = "Maigreur";
+    $Couleur = "orange";
+}
+elseif ($IMC > 18.5 && $IMC <= 25) {
+    $Attribut = "Corpulence normale";
+    $Couleur = "green";
+}
+elseif ($IMC > 25 && $IMC <= 30) {
+    $Attribut = "Surpoids";
+    $Couleur = "orange";
+}
+elseif ($IMC > 30 && $IMC <= 35) {
+    $Attribut = "Obésité modérée";
+    $Couleur = "red";
+}
+elseif ($IMC > 35 && $IMC <= 40) {
+    $Attribut = "Obésité sévère";
+    $Couleur = "red";
+}
+elseif ($IMC > 40) {
+    $Attribut = "Obésité Morbide !!!";
+    $Couleur = "red";
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,18 +53,18 @@ if(!empty($_POST)){
             <table>
                 <tr>
                     <td>
-                        Poids (en Kg) :
+                        <legend>Poids (Kg):</legend>
                     </td>
                     <td>
-                        <input type="number" name="Poids" required="required" value="<?php echo $poids ?>"/>
+                        <input type="number" name="Poids" required="required" value=""/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Taille :
+                        <legend>Taille (m):</legend>
                     </td>
                     <td>
-                        <input type="text" name="Taille" required="required" value="<?php echo $taille ?>" />
+                        <input type="text" name="Taille" required="required" value="" />
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +74,12 @@ if(!empty($_POST)){
                   </tr>
             </table>
         </form>
-        <p><b><?php echo $IMC ?></b></p>
+        <table>
+            <tr>
+                <td><?php echo $IMC ?></td>
+                <td><?php echo "<a style='color:".$Couleur." '>".$Attribut."</a>"; ?></td>
+            </tr>
+        </table>
     </div>
   </body>
 </html>
