@@ -11,7 +11,7 @@ if(!empty($_POST)){
   <head>
     <meta charset="utf-8"/>
     <title>IMC</title>
-    <link rel="stylesheet" href="style/Style.css"/>
+    <link rel="stylesheet" href="style/Style.css" />
   </head>
   <body>
     <div id="main">
