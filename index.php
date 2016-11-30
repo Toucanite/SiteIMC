@@ -48,6 +48,17 @@ elseif ($IMC > 40) {
   </head>
   <body>
     <div id="main">
+      <?php
+        $TableauIMC = array (
+            "moins de 16,5" => "dénutrition ou famine",
+            "16,5 à 18,5" => "maigreur",
+            "18,5 à 25" => "corpulence normale",
+            "25 à 30" => "surpoids",
+            "30 à 35" => "obésité modére",
+            "35 à 40" => "obésité sévère",
+            "plus de 40" => "obésité morbide ou massive",
+        ); 
+      ?>
       <img alt="Obelix" src="ressources/obelix.jpg"/>
       <form action="#" method="POST">
             <table>
@@ -80,6 +91,17 @@ elseif ($IMC > 40) {
                 <td><?php echo "<a style='color:".$Couleur."  '>".$Attribut."</a>"; ?></td>
             </tr>
         </table>
+        <table style=" border: 1px solid black">
+            <?php
+                foreach($TableauIMC as $key => $value){
+                    echo "<tr>";
+                    echo "<td>".$key."</td>";
+                    echo "<td>".$value."</td>";
+                    echo "</tr>";
+                }
+            ?>
+        </table>
     </div>
   </body>
 </html>
+
