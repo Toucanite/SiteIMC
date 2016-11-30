@@ -7,27 +7,35 @@ if(!empty($_POST)){
 }
 
 $Attribut = "";
+$Couleur = "black";
 
 if ($IMC < 16.5) {
     $Attribut = "Dénutrition";
+    $Couleur = "red";
 }
 elseif ($IMC > 16.5 && $IMC <= 18.5) {
     $Attribut = "Maigreur";
+    $Couleur = "orange";
 }
 elseif ($IMC > 18.5 && $IMC <= 25) {
     $Attribut = "Corpulence normale";
+    $Couleur = "green";
 }
 elseif ($IMC > 25 && $IMC <= 30) {
     $Attribut = "Surpoids";
+    $Couleur = "orange";
 }
 elseif ($IMC > 30 && $IMC <= 35) {
     $Attribut = "Obésité modérée";
+    $Couleur = "red";
 }
 elseif ($IMC > 35 && $IMC <= 40) {
     $Attribut = "Obésité sévère";
+    $Couleur = "red";
 }
 elseif ($IMC > 40) {
     $Attribut = "Obésité Morbide !!!";
+    $Couleur = "red";
 }
 
 ?>
@@ -69,7 +77,7 @@ elseif ($IMC > 40) {
         <table>
             <tr>
                 <td><?php echo $IMC ?></td>
-                <td><?php echo "<a style='color: red'>".$Attribut."</a>"; ?></td>
+                <td><?php echo "<a style='color:".$Couleur." '>".$Attribut."</a>"; ?></td>
             </tr>
         </table>
     </div>
