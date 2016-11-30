@@ -6,6 +6,7 @@
   </head>
   <body>
     <div>
+      <img alt="Obelix" src="ressources/obelix.jpg"
     </div>
   </body>
 </html>
