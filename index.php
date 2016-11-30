@@ -6,9 +6,30 @@ if(!empty($_POST)){
   $IMC = round($poids / pow($taille, 2), 1);
 }
 
+$Attribut = "";
+
 if ($IMC < 16.5) {
-    
+    $Attribut = "Dénutrition";
 }
+elseif ($IMC > 16.5 && $IMC <= 18.5) {
+    $Attribut = "Maigreur";
+}
+elseif ($IMC > 18.5 && $IMC <= 25) {
+    $Attribut = "Corpulence normale";
+}
+elseif ($IMC > 25 && $IMC <= 30) {
+    $Attribut = "Surpoids";
+}
+elseif ($IMC > 30 && $IMC <= 35) {
+    $Attribut = "Obésité modérée";
+}
+elseif ($IMC > 35 && $IMC <= 40) {
+    $Attribut = "Obésité sévère";
+}
+elseif ($IMC > 40) {
+    $Attribut = "Obésité Morbide !!!";
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +66,12 @@ if ($IMC < 16.5) {
                   </tr>
             </table>
         </form>
-        <p><b><?php echo (isset($IMC)?$IMC:"") ?></b></p>
+        <table>
+            <tr>
+                <td><?php echo $IMC ?></td>
+                <td><?php echo "<a style='color: red'>".$Attribut."</a>"; ?></td>
+            </tr>
+        </table>
     </div>
   </body>
 </html>
