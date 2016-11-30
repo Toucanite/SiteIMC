@@ -5,6 +5,10 @@ if(!empty($_POST)){
 
   $IMC = round($poids / pow($taille, 2), 1);
 }
+
+if ($IMC < 16.5) {
+    
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,18 +24,18 @@ if(!empty($_POST)){
             <table>
                 <tr>
                     <td>
-                        Poids (en Kg) :
+                        <legend>Poids (Kg):</legend>
                     </td>
                     <td>
-                        <input type="number" name="Poids" required="required" value="<?php echo $poids ?>"/>
+                        <input type="number" name="Poids" required="required" value=""/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Taille :
+                        <legend>Taille (m):</legend>
                     </td>
                     <td>
-                        <input type="text" name="Taille" required="required" value="<?php echo $taille ?>" />
+                        <input type="text" name="Taille" required="required" value="" />
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +45,7 @@ if(!empty($_POST)){
                   </tr>
             </table>
         </form>
-        <p><b><?php echo $IMC ?></b></p>
+        <p><b><?php echo (isset($IMC)?$IMC:"") ?></b></p>
     </div>
   </body>
 </html>
