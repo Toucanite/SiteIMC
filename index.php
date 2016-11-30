@@ -10,9 +10,6 @@ $Attribut = "";
 $Couleur = "black";
 
 if ($IMC < 16.5) {
-<<<<<<< HEAD
-
-=======
     $Attribut = "Dénutrition";
     $Couleur = "red";
 }
@@ -27,7 +24,6 @@ elseif ($IMC > 18.5 && $IMC <= 25) {
 elseif ($IMC > 25 && $IMC <= 30) {
     $Attribut = "Surpoids";
     $Couleur = "orange";
->>>>>>> refs/remotes/origin/master
 }
 elseif ($IMC > 30 && $IMC <= 35) {
     $Attribut = "Obésité modérée";
