@@ -1,6 +1,8 @@
 <?php
 $poids = $_REQUIRED["Poids"];
 $taille = $_REQUIRED["Taille"];
+
+$IMC = $poids / pow($taille, 2);
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,6 +38,7 @@ $taille = $_REQUIRED["Taille"];
                   </tr>
             </table>
         </form>
+        <p><b><?php echo $IMC ?></b></p>
     </div>
   </body>
 </html>
